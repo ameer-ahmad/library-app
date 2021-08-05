@@ -28,13 +28,18 @@ function addBookToLibrary(e) {
 }
 
 function displayBooks() {
+    books.innerHTML = "";
     for (const book of myLibrary) {
         const el = document.createElement('div');
         el.classList.add('book');
-        const title = document.createTextNode(book.title);
-        const author = document.createTextNode(book.author);
-        const pages = document.createTextNode(book.pages);
-        const read = document.createTextNode(book.read?"read":"not read yet");
+        const title = document.createElement("p");
+        title.innerText = book.title;
+        const author = document.createElement('p');
+        author.innerText = `by ${book.author}`
+        const pages = document.createElement('p');
+        pages.innerText = `${book.pages} pages`
+        const read = document.createElement('p');
+        read.innerText = (book.read?"read":"not read yet");
         el.appendChild(title);
         el.appendChild(author);
         el.appendChild(pages)
