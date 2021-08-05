@@ -119,14 +119,13 @@ main {
 }
 
 .delete {
-    background-color: red;
     border: none;
     width: fit-content;
     font-size: 1.5rem;
-    padding:0.5rem;
     position: absolute;
     top: 1rem;
     right: 1rem;
     border-radius: 0.3rem;
     cursor: pointer;
+    background: transparent;
 }
