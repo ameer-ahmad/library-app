@@ -38,15 +38,45 @@ function displayBooks() {
         author.innerText = `by ${book.author}`
         const pages = document.createElement('p');
         pages.innerText = `${book.pages} pages`
-        const read = document.createElement('p');
+        const read = document.createElement('button');
         read.innerText = (book.read?"read":"not read yet");
+        read.classList.add("readBtn");
+        const del = document.createElement('button');
+        del.innerText = "X";
+        del.classList.add('delete');
         el.appendChild(title);
         el.appendChild(author);
         el.appendChild(pages)
         el.appendChild(read);
+        el.appendChild(del);
         books.appendChild(el);
+    }
+}
+
+function readHandler() {
+    const readBtns = document.querySelectorAll('.readBtn');
+    const delBtns = document.querySelectorAll('.delete');
+
+    for (let i = 0; i < readBtns.length; i++) {
+        readBtns[i].onclick = function() {
+            if (readBtns[i].innerText === 'read') {
+                readBtns[i].innerText = "not read yet";
+                myLibrary[i].read = false;
+            } else {
+                readBtns[i].innerText = "read";
+                myLibrary[i].read = true;
+            }
+        }
+    }
+
+    for (let i = 0; i < delBtns.length; i++) {
+        delBtns[i].onclick = function() {
+            this.parentElement.parentElement.removeChild(this.parentElement);
+            myLibrary.pop([i])
+        }
     }
 }
 
 // event listeners
 document.getElementById('submit').addEventListener('click', addBookToLibrary);
+books.addEventListener('click', readHandler)

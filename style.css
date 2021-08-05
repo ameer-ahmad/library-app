@@ -88,6 +88,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    position: relative;
 }
 
 .book p {
@@ -101,4 +102,31 @@ main {
     margin-top: 3rem;
     margin-left: 4rem;
     grid-auto-rows: 20rem;
+}
+
+.readBtn {
+    width: fit-content;
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    margin: 0 auto;
+    background-color: #EAE151;
+    border: 1px solid #2D2A32;
+}
+
+.readBtn:hover {
+    background-color: #DDD92A;
+    cursor: pointer;
+}
+
+.delete {
+    background-color: red;
+    border: none;
+    width: fit-content;
+    font-size: 1.5rem;
+    padding:0.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
 }
